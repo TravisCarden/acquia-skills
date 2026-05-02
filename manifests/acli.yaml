@@ -1,0 +1,34 @@
+version: 1
+product: acli
+audience: user
+
+skills:
+  - id: acli-getting-started
+    path: skills/acli/getting-started/SKILL.md
+
+  - id: acli-ide-management
+    path: skills/acli/ide-management/SKILL.md
+
+  - id: acli-application-management
+    path: skills/acli/application-management/SKILL.md
+
+  - id: acli-ssh-key-management
+    path: skills/acli/ssh-key-management/SKILL.md
+
+  - id: acli-environment-management
+    path: skills/acli/environment-management/SKILL.md
+
+  - id: acli-pull-push
+    path: skills/acli/pull-push/SKILL.md
+
+  - id: acli-remote-access
+    path: skills/acli/remote-access/SKILL.md
+
+  - id: acli-codestudio
+    path: skills/acli/codestudio/SKILL.md
+
+  - id: acli-scripting
+    path: skills/acli/scripting/SKILL.md
+
+  - id: acli-troubleshooting
+    path: skills/acli/troubleshooting/SKILL.md

@@ -1,0 +1,93 @@
+version: 1
+audience: user
+
+products:
+  - id: acli
+  - id: pipelines-cli
+  - id: drupal-maintenance
+  - id: playbooks
+
+skills:
+  # acli skills
+  - id: acli-getting-started
+    product: acli
+    audience: user
+    path: skills/acli/getting-started/SKILL.md
+
+  - id: acli-ide-management
+    product: acli
+    audience: user
+    path: skills/acli/ide-management/SKILL.md
+
+  - id: acli-application-management
+    product: acli
+    audience: user
+    path: skills/acli/application-management/SKILL.md
+
+  - id: acli-environment-management
+    product: acli
+    audience: user
+    path: skills/acli/environment-management/SKILL.md
+
+  - id: acli-pull-push
+    product: acli
+    audience: user
+    path: skills/acli/pull-push/SKILL.md
+
+  - id: acli-remote-access
+    product: acli
+    audience: user
+    path: skills/acli/remote-access/SKILL.md
+
+  - id: acli-ssh-key-management
+    product: acli
+    audience: user
+    path: skills/acli/ssh-key-management/SKILL.md
+
+  - id: acli-codestudio
+    product: acli
+    audience: user
+    path: skills/acli/codestudio/SKILL.md
+
+  - id: acli-scripting
+    product: acli
+    audience: user
+    path: skills/acli/scripting/SKILL.md
+
+  - id: acli-troubleshooting
+    product: acli
+    audience: user
+    path: skills/acli/troubleshooting/SKILL.md
+
+  # pipelines-cli skills
+  - id: pipelines-cli-getting-started
+    product: pipelines-cli
+    audience: user
+    path: skills/pipelines-cli/getting-started/SKILL.md
+
+  - id: pipelines-cli-application-management
+    product: pipelines-cli
+    audience: user
+    path: skills/pipelines-cli/application-management/SKILL.md
+
+  - id: pipelines-cli-pipeline-operations
+    product: pipelines-cli
+    audience: user
+    path: skills/pipelines-cli/pipeline-operations/SKILL.md
+
+  # drupal-maintenance skills
+  - id: drupal-maintenance-security-updates
+    product: drupal-maintenance
+    audience: user
+    path: skills/drupal-maintenance/security-updates/SKILL.md
+
+  - id: drupal-maintenance-dependency-updates
+    product: drupal-maintenance
+    audience: user
+    path: skills/drupal-maintenance/dependency-updates/SKILL.md
+
+  # playbook skills
+  - id: playbooks-drupal-update-deploy
+    product: playbooks
+    audience: user
+    path: skills/playbooks/drupal-update-deploy/SKILL.md

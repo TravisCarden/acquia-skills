@@ -1,0 +1,10 @@
+version: 1
+product: drupal-maintenance
+audience: user
+
+skills:
+  - id: drupal-maintenance-security-updates
+    path: skills/drupal-maintenance/security-updates/SKILL.md
+
+  - id: drupal-maintenance-dependency-updates
+    path: skills/drupal-maintenance/dependency-updates/SKILL.md

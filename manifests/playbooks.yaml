@@ -1,0 +1,7 @@
+version: 1
+product: playbooks
+audience: user
+
+skills:
+  - id: playbooks-drupal-update-deploy
+    path: skills/playbooks/drupal-update-deploy/SKILL.md

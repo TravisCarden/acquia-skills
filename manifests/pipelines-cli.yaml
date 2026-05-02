@@ -1,0 +1,13 @@
+version: 1
+product: pipelines-cli
+audience: user
+
+skills:
+  - id: pipelines-cli-getting-started
+    path: skills/pipelines-cli/getting-started/SKILL.md
+
+  - id: pipelines-cli-application-management
+    path: skills/pipelines-cli/application-management/SKILL.md
+
+  - id: pipelines-cli-pipeline-operations
+    path: skills/pipelines-cli/pipeline-operations/SKILL.md
