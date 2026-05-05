@@ -118,6 +118,28 @@ Expected output after all fixes:
 No security vulnerability advisories found.
 ```
 
+### Confirm the updated version is installed
+
+```bash
+composer show drupal/package | grep versions
+```
+
+Check the installed version matches the expected fix release. For Drupal core:
+
+```bash
+composer show drupal/core | grep versions
+```
+
+### Confirm Drupal still bootstraps
+
+If Drush is available locally:
+
+```bash
+drush status
+```
+
+Expected: `Drupal bootstrap: Successful`. If bootstrap fails, do not commit — investigate before proceeding.
+
 > **After the audit is clean, always ask the user these questions in order:**
 >
 > **1. "Do you want to commit these changes?"**
@@ -131,6 +153,12 @@ No security vulnerability advisories found.
 > **2. "Do you want to deploy these changes to an Acquia environment?"**
 > - If yes → follow the **[Drupal Update and Deploy playbook](../../playbooks/drupal-update-deploy/SKILL.md)** to push code, switch the environment, and optionally trigger a pipeline build.
 > - If no → done.
+>
+> **3. After deployment:** Run database updates on the target environment before marking the work complete:
+> ```bash
+> drush updb --yes
+> drush cr
+> ```
 
 ---
 
@@ -170,6 +198,22 @@ composer depends drupal/conflicting-package
 ```
 
 Resolve the constraint in `composer.json` before retrying.
+
+### Rollback a bad update
+
+If the update introduced a regression, restore the previous state from version control and reinstall:
+
+```bash
+git checkout composer.json composer.lock
+composer install
+```
+
+If the update was already committed, revert the commit:
+
+```bash
+git revert HEAD
+composer install
+```
 
 ---
 

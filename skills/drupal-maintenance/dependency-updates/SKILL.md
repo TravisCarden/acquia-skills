@@ -165,7 +165,14 @@ composer update drupal/module-a drupal/module-b --with-all-dependencies
 If `composer update` introduced a regression, restore the previous lock file from version control and reinstall:
 
 ```bash
-git checkout composer.lock
+git checkout composer.json composer.lock
+composer install
+```
+
+If the update was already committed, revert the commit:
+
+```bash
+git revert HEAD
 composer install
 ```
 
@@ -185,6 +192,16 @@ Run `composer audit` after any update to confirm no new advisories were introduc
 composer audit
 ```
 
+### Confirm Drupal still bootstraps
+
+If Drush is available locally:
+
+```bash
+drush status
+```
+
+Expected: `Drupal bootstrap: Successful`. If bootstrap fails, do not commit — investigate before proceeding.
+
 > **After verification, always ask the user these questions in order:**
 >
 > **1. "Do you want to commit these changes?"**
@@ -198,6 +215,12 @@ composer audit
 > **2. "Do you want to deploy these changes to an Acquia environment?"**
 > - If yes → follow the **[Drupal Update and Deploy playbook](../../playbooks/drupal-update-deploy/SKILL.md)** to push code, switch the environment, and optionally trigger a pipeline build.
 > - If no → done.
+>
+> **3. After deployment:** Run database updates on the target environment before marking the work complete:
+> ```bash
+> drush updb --yes
+> drush cr
+> ```
 
 ---
 

@@ -109,7 +109,36 @@ pipelines start --application-id=<app-id> --vcs-path=<branch> --tail
 
 ---
 
-### Step 7 — Verify deployment
+### Step 7 — Run database updates
+
+After code is live on the environment (and after any pipeline completes), run database updates and rebuild the cache via Drush:
+
+```bash
+# SSH into the environment
+acli ssh <environment-id>
+
+# Apply pending database updates
+drush updb --yes
+
+# Rebuild caches
+drush cr
+```
+
+> **If using pipelines:** Drush commands may already be included in your pipeline definition. Ask the user: **"Does your pipeline run `drush updb` and `drush cr`?"**
+> - If yes → skip this step.
+> - If no → run the commands above.
+
+Verify Drush can reach the site and the database schema is up to date:
+
+```bash
+drush status
+```
+
+Expected output includes `Drupal bootstrap: Successful` and a Drupal version. If Drush fails to bootstrap, do not proceed — check for errors before marking the deployment complete.
+
+---
+
+### Step 8 — Verify deployment
 
 After the pipeline completes (or if skipping pipelines), confirm the environment is running the expected code:
 
@@ -131,3 +160,4 @@ Check the `vcs` field of the target environment to confirm the branch matches.
 | Push code | acli | `acli-pull-push` |
 | Deploy to environment | acli | `acli-environment-management` |
 | Trigger pipeline | pipelines-cli | `pipelines-cli-pipeline-operations` |
+| Run database updates | drush | `drush updb`, `drush cr` |
